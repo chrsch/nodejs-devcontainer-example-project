@@ -1,7 +1,7 @@
-const db = require('./database');
-const Vehicle = require('../models/vehicle');
+import db from './database.js';
+import Vehicle from '../models/vehicle.js';
 
-module.exports = {
+const vehicleDao = {
     createVehicle: (vehicle) => {
         return new Promise((resolve, reject) => {
             const query = `INSERT INTO vehicles (make, model, customerId) VALUES (?, ?, ?)`;
@@ -66,3 +66,5 @@ module.exports = {
         });
     },
 };
+
+export default vehicleDao;

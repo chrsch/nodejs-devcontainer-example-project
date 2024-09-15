@@ -1,7 +1,7 @@
-const db = require('./database');
-const Customer = require('../models/customer');
+import db from './database.js';
+import Customer from '../models/customer.js';
 
-module.exports = {
+const customerDao = {
     createCustomer: (customer) => {
         return new Promise((resolve, reject) => {
             const query = `INSERT INTO customers (name, email) VALUES (?, ?)`;
@@ -55,3 +55,5 @@ module.exports = {
         });
     }
 };
+
+export default customerDao;

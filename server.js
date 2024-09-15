@@ -1,8 +1,7 @@
-const http = require('http');
-const url = require('url');
-const database = require('./db/database');
-const customerDao = require('./db/customerDao');
-const vehicleDao = require('./db/vehicleDao');
+import http from 'http';
+import url from 'url';
+import customerDao from './db/customerDao.js';
+import vehicleDao from './db/vehicleDao.js';
 
 const server = http.createServer(async (req, res) => {
   const parsedUrl = url.parse(req.url, true);
@@ -103,3 +102,5 @@ const server = http.createServer(async (req, res) => {
 server.listen(3000, () => {
   console.log('Server is running on http://localhost:3000');
 });
+
+export default server;  // Export the server for testing
